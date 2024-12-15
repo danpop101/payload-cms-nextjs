@@ -18,12 +18,21 @@ export const appearanceOptions: Record<LinkAppearances, { label: string; value: 
 type LinkType = (options?: {
   appearances?: LinkAppearances[] | false
   disableLabel?: boolean
+  name?: string // Added the name property here
   overrides?: Record<string, unknown>
+  // required?: boolean // Added required here
 }) => Field
 
-export const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = {}) => {
+export const link: LinkType = ({
+  appearances,
+  disableLabel = false,
+  name,
+  overrides = {},
+  // required, // Added required here
+} = {}) => {
   const linkResult: Field = {
-    name: 'link',
+    // name: 'link',
+    name: name || 'link', // Use the provided name or default to 'link'
     type: 'group',
     admin: {
       hideGutter: true,

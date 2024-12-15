@@ -1290,6 +1290,24 @@ export interface Header {
           url?: string | null;
           label: string;
         };
+        subItems?:
+          | {
+              subItem: {
+                label: string;
+                link: {
+                  type?: ('reference' | 'custom') | null;
+                  newTab?: boolean | null;
+                  reference?: {
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null;
+                  url?: string | null;
+                  label: string;
+                };
+              };
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -1336,6 +1354,25 @@ export interface HeaderSelect<T extends boolean = true> {
               reference?: T;
               url?: T;
               label?: T;
+            };
+        subItems?:
+          | T
+          | {
+              subItem?:
+                | T
+                | {
+                    label?: T;
+                    link?:
+                      | T
+                      | {
+                          type?: T;
+                          newTab?: T;
+                          reference?: T;
+                          url?: T;
+                          label?: T;
+                        };
+                  };
+              id?: T;
             };
         id?: T;
       };
