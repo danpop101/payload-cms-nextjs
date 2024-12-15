@@ -31,11 +31,11 @@ export const Header: GlobalConfig = {
               name: 'subItem', // Added name here as well
               type: 'group',
               fields: [
-                {
-                  name: 'label',
-                  type: 'text',
-                  required: true,
-                },
+                // {
+                //   name: 'label',
+                //   type: 'text',
+                //   required: true,
+                // },
                 link({
                   name: 'link',
                   appearances: false,

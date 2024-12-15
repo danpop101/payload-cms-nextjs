@@ -12,6 +12,10 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
     setOpenDropdown(openDropdown === index ? null : index)
   }
 
+  const closeDropdown = () => {
+    setOpenDropdown(null)
+  }
+
   return (
     <nav className="flex gap-3 items-center">
       {navItems.map((item, i) => {
@@ -43,8 +47,9 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
                       <CMSLink
                         key={i}
                         {...item.subItem.link}
-                        appearance="link"
+                        // appearance="link"
                         className="block px-4 py-2 text-sm hover:bg-gray-100"
+                        onClick={closeDropdown}
                       />
                     ),
                   )}

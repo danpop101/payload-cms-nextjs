@@ -1293,7 +1293,6 @@ export interface Header {
         subItems?:
           | {
               subItem: {
-                label: string;
                 link: {
                   type?: ('reference' | 'custom') | null;
                   newTab?: boolean | null;
@@ -1361,7 +1360,6 @@ export interface HeaderSelect<T extends boolean = true> {
               subItem?:
                 | T
                 | {
-                    label?: T;
                     link?:
                       | T
                       | {
