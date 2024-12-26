@@ -6,8 +6,8 @@ export const GET = async () => {
     config: configPromise,
   })
 
-  const data = await payload.find({
-    collection: 'users',
+  const data = await payload.find({ 
+    collection: 'users'
   })
 
   return Response.json(data)
