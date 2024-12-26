@@ -6,10 +6,9 @@ import { toast } from "sonner";
 
 export default function Home() {
   function handleClick() {
-    toast.success("Successfully saved!", {
-      description: "Your changes have been saved.",
+    toast.success("Hello, world!", {
+      duration: 2000,
       closeButton: true,
-
     });
   }
 
