@@ -1,6 +1,18 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { toast } from "sonner";
 
 export default function Home() {
+  function handleClick() {
+    toast.success("Successfully saved!", {
+      description: "Your changes have been saved.",
+      closeButton: true,
+
+    });
+  }
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -21,6 +33,11 @@ export default function Home() {
             .
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>
+            <Button variant={"outline"} size={"lg"} onClick={handleClick}>
+              Test
+            </Button>
+          </li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
