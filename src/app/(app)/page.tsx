@@ -3,13 +3,33 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { toast } from "sonner";
+import { sendEmail } from "../actions/sendEmail";
+import { useState } from "react";
 
 export default function Home() {
-  function handleClick() {
-    toast.success("Hello, world!", {
-      duration: 2000,
-      closeButton: true,
-    });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const email = {
+    to: "dpop100@yahoo.com",
+    subject: "Test subject",
+    text: "Nulla tempor sunt officia esse aliqua. Exercitation id aliquip reprehenderit excepteur dolore irure cupidatat Lorem et mollit ad ipsum incididunt consectetur. Qui dolor sint commodo ex mollit labore consequat amet. Est irure excepteur laborum nulla magna ad deserunt eu veniam commodo officia consectetur sunt tempor. Velit do sit nostrud ut aliquip aliquip duis reprehenderit.",
+  };
+
+  async function handleClick() {
+    try {
+      setIsLoading(true);
+      const result = await sendEmail(email.to, email.subject, email.text);
+
+      if (result.success) {
+        toast.success("Email sent successfully");
+      } else {
+        toast.error(result.error || "Failed to send email");
+      }
+    } catch (error) {
+      toast.error("Something went wrong: " + (error as string));
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -33,8 +53,21 @@ export default function Home() {
           </li>
           <li>Save and see your changes instantly.</li>
           <li>
-            <Button variant={"outline"} size={"lg"} onClick={handleClick}>
-              Test
+            <Button
+              variant={"outline"}
+              size={"lg"}
+              onClick={handleClick}
+              disabled={isLoading}
+              className="w-80 min-w-80"
+            >
+              <Image
+                aria-hidden
+                src="/email.svg"
+                alt="Email icon"
+                width={16}
+                height={16}
+              />
+              {isLoading ? "Sending..." : "Send Test Email"}
             </Button>
           </li>
         </ol>
