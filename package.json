@@ -22,6 +22,7 @@
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
     "next": "15.1.5",
+    "nodemailer": "^6.10.0",
     "payload": "latest",
     "react": "19.0.0",
     "react-dom": "19.0.0",
