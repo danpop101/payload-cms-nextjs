@@ -20,8 +20,11 @@
     "@payloadcms/payload-cloud": "latest",
     "@payloadcms/richtext-lexical": "latest",
     "@tailwindcss/postcss": "^4.0.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
+    "lucide-react": "^0.475.0",
     "next": "15.1.5",
     "nodemailer": "^6.10.0",
     "payload": "latest",
@@ -30,7 +33,9 @@
     "react-dom": "19.0.0",
     "sharp": "0.32.6",
     "sonner": "^2.0.1",
-    "tailwindcss": "^4.0.8"
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss": "^4.0.8",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
